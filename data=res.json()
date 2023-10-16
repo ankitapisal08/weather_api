@@ -1,0 +1,17 @@
+import requests
+try:
+	a1="https://api.openweathermap.org/data/2.5/weather"
+	a2="?q="+input("enter city name:")
+	a3="&appid="+"2b4287224e61e8cfcdddae7866105dd5"
+	a4="&units="+"metric"
+	wa=a1+a2+a3+a4
+	res=requests.get(wa)
+	print(res)
+	data=res.json()
+	print(data)
+	temp=data["main"]["temp"]
+	print("temperature",temp)
+	weather=data["weather"][0]["main"]
+	print("weather",weather)
+except Exception as e:
+	print("issue",e)
